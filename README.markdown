@@ -1,7 +1,7 @@
 
 __First commit__, will fix and update with more information and diagrams.
 
-#Compiled python
+# Compiled python
 
 Tested the longest commons subsequence algorithm with:
 
