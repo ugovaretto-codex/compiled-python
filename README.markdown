@@ -1,7 +1,7 @@
 
 __First commit__, will fix and update with more information and diagrams.
 
-# Compiled python
+# Compiled Python
 
 Tested the longest common subsequence algorithm with:
 
@@ -11,18 +11,18 @@ Tested the longest common subsequence algorithm with:
 * Numba
 * Taichi
 
-Was not able to make *Codon* work on MacOS, also it's its own language built on top of a subset of python
+I was not able to make *Codon* work on MacOS, also it's its own language built on top of a subset of Python
 which requires to do things like:
 
 ```python
 from python import numpy as np
 ```
-and annotate regular python code with a `@python` decorator.
+and annotate regular Python code with a `@python` decorator.
 
-[Taichi](https://www.taichi-lang.org/) is by far the best, even faster than equivalent C++ code and has a full graphics rendering enginge included
+[Taichi](https://www.taichi-lang.org/) is by far the best, even faster than equivalent C++ code and has a full graphics rendering engine included
 making it possible to simulate and visualise results inside a Jupyter notebook in real-time, compiling to all the
-available platforms, including Apple Metal. It also include one of the best frameworks I have seen for dealing with
-sparse data, allowing the same code to work on both sparse and dense arrays. In the documentation an example of how
+available platforms, including Apple Metal. It also includes one of the best frameworks I have seen for dealing with
+sparse data, allowing the same code to work on both sparse and dense arrays. In the documentation, an example of how
 to make the code scale on multiple nodes with mpi4py is provided.
 Switching to any platform is achieved by simply adding a
 ```python
@@ -61,7 +61,7 @@ Both Cython and Mypyc support building with `setup.py`, refer to the documentati
 
 ## Cython
 
-Invoke `cythonize lcs.py` or `cythonize lcs_cython.py` or `cythonize lcs_cython.pyx` then compile the generted
+Invoke `cythonize lcs.py` or `cythonize lcs_cython.py` or `cythonize lcs_cython.pyx` then compile the generated
 `.c` file with:
 
 ```sh
@@ -70,7 +70,7 @@ clang -shared -O3 <file.c> -l python -o <lcs.so or lcs_cython.so>
 On MacOS set the `CPATH` variable to point to the include directory where `Python.h` resides and the
 `LIBRARY_PATH` to the location of the `libpython3.*` library.
 
-On Linux it should be enough to just install the `libpython-dev` package.
+On Linux, it should be enough to just install the `libpython-dev` package.
 
 Run with `python -c "from lcs import main; main()"` or use `lcs_cython` when building the `lcs_python` module.
 
@@ -80,5 +80,5 @@ Just invoke `mypyc lcs.py` then run `python -c "from lcs import main; main()`
 
 ## Numba and Taichi
 
-No pre-compilation required, the code is annotated and jitted and executed on the fly just
+No pre-compilation is required, the code is annotated and jitted and executed on the fly just
 run `python3 <file>`.
