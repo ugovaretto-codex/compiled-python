@@ -49,8 +49,8 @@ Performance:
 * vanilla cython: usr time   83.51 secs    0.24 millis   83.51 secs
 * cython with type annotation: usr time   27.29 secs    0.24 millis   27.29 secs
 * cython pyx: usr time    3.30 secs    0.28 millis    3.30 secs
-* __taichi: usr time    2.56 secs    0.21 millis    2.56 secs__
-* __taichi static: usr time    2.46 secs    0.22 millis    2.46 secs__
+* __taichi: usr time    2.56 secs    0.21 millis    2.56 secs__ 😃
+* __taichi static: usr time    2.46 secs    0.22 millis    2.46 secs__ 😄
 * numba: usr time    3.40 secs    0.21 millis    3.40 secs
 
  __NOTE__: Required for cypthon pyx: use typed indices for loops, __not__ using typed indices
