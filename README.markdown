@@ -43,6 +43,8 @@ Performance:
 
 ![Benchmarks](https://github.com/ugovaretto-codex/compiled-python/blob/main/results_40000.png)
 
+![Speedup](https://github.com/ugovaretto-codex/compiled-python/blob/main/speedup_40000.png)
+
  __NOTE__: Required for Cython pyx: use typed indices for loops, __not__ using typed indices
  results in a slowdown of ~17x (55s vs 3s)
 
