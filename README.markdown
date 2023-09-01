@@ -43,6 +43,9 @@ Performance:
 * __taichi static: usr time    2.46 secs    0.22 millis    2.46 secs__ 😄
 * numba: usr time    3.40 secs    0.21 millis    3.40 secs
 
+
+![Benchmarks](https://github.com/ugovaretto-codex/compiled-pythong/blob/results_40000.png?raw=true)
+
  __NOTE__: Required for cypthon pyx: use typed indices for loops, __not__ using typed indices
  results in a slowdown of ~17x (55s vs 3s)
 
