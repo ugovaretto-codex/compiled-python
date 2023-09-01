@@ -1,3 +1,5 @@
+import sys
+import time
 import numpy as np
 #longest common subsequence
 def lcs(a: list[int], b: list[int]) -> int:
@@ -10,16 +12,23 @@ def lcs(a: list[int], b: list[int]) -> int:
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
     return dp[-1][-1]
 
-def run_lcs():
-    rng = np.random.default_rng(12345)
-    n = 30_000
+def run_lcs(n: int, tag):
+    rng = np.random.default_rng(1234567)
     a = rng.integers(0, 100, n, dtype=np.int32).tolist()
     b = rng.integers(0, 100, n, dtype=np.int32).tolist()
-    s = lcs(a,b)
-    print(s)
+    tic = time.perf_counter()
+    lcs(a,b)
+    toc = time.perf_counter()
+    print(f"{tag},{n},{toc - tic:0.4f}")
 
-def main():
-    run_lcs()
+def main(n: int, tag: str):
+    run_lcs(n, tag)
 
 if __name__ == "__main__":
-    main()
+    n = 40_000
+    tag = "CPython" 
+    if len(sys.argv) >= 2:
+        n = int(sys.argv[1])
+    if len(sys.argv) == 3:
+        tag = sys.argv[2]
+    main(n, tag)

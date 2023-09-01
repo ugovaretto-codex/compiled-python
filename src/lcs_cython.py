@@ -1,5 +1,7 @@
 import numpy as np
 import cython
+import sys
+import time
 
 #longest common subsequence
 @cython.locals(i=cython.int, j=cython.int, a=list[cython.int], b=list[cython.int])
@@ -17,16 +19,20 @@ def lcs(a: list[int], b: list[int]) -> int:
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
     return dp[m][n]
 
-def run_lcs():
-    rng = np.random.default_rng(12345)
-    n = 30_000
+def run_lcs(n: int):
+    rng = np.random.default_rng(1234567)
     a = rng.integers(0, 100, n, dtype=np.int32).tolist()
     b = rng.integers(0, 100, n, dtype=np.int32).tolist()
-    s = lcs(a,b)
-    print(s)
+    tic = time.perf_counter()
+    lcs(a,b)
+    toc = time.perf_counter()
+    print(f"Cython annotated,{n},{toc - tic:0.4f}")
 
-def main():
-    run_lcs()
+def main(n: int):
+    run_lcs(n)
 
 if __name__ == "__main__":
-    main()
+    n = 40_000
+    if len(sys.argv) == 2:
+        n = int(sys.argv[1])
+    main(n)

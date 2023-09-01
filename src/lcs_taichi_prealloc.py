@@ -1,12 +1,11 @@
+import time
+import sys
 import taichi as ti
 import numpy as np
-ti.init(arch=ti.cpu)
 
+
+ti.init(arch=ti.cpu)
 def lcs(a: np.ndarray, b: np.ndarray) -> int:
-    dp = ti.ndarray(
-            shape=(len(a)+1, len(b)+1),
-            dtype=ti.i32
-    )
     return _compute(a, b, dp)
 
 @ti.kernel
@@ -25,16 +24,22 @@ def _compute(
     return dp[a.shape[0], b.shape[0]]
 
 
-def run_lcs():
-    rng = np.random.default_rng(12345)
-    n = 30_000
+def run_lcs(n: int):
+    rng = np.random.default_rng(1234567)
     a = rng.integers(0, 100, n, dtype=np.int32)
     b = rng.integers(0, 100, n, dtype=np.int32)
-    s = lcs(a,b)
-    print(s)
+    tic = time.perf_counter() 
+    lcs(a,b)
+    toc = time.perf_counter()
+    print(f"Taichi prealloc,{n},{toc - tic:0.4f}")
 
-def main():
-    run_lcs()
+def main(n: int):
+    global dp
+    dp = np.ndarray(dtype=np.int32, shape = (n+1, n+1))
+    run_lcs(n)
 
 if __name__ == "__main__":
-    main()
+    n = 40_000
+    if len(sys.argv) == 2:
+        n = int(sys.argv[1])
+    main(n)

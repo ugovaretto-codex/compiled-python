@@ -19,18 +19,6 @@ from python import numpy as np
 ```
 and annotate regular Python code with a `@python` decorator.
 
-[Taichi](https://www.taichi-lang.org/) is by far the best, even faster than equivalent C++ code and has a full graphics rendering engine included
-making it possible to simulate and visualise results inside a Jupyter notebook in real-time, compiling to all the
-available platforms, including Apple Metal. It also includes one of the best frameworks I have seen for dealing with
-sparse data, allowing the same code to work on both sparse and dense arrays. In the documentation, an example of how
-to make the code scale on multiple nodes with mpi4py is provided.
-Switching to any platform is achieved by simply adding a
-```python
-ti.init(arch=ti.cpu|metal|cuda|vulkan|dx11...)
-```
-statement at the beginning of the module.
-
-It can use compute shaders directly making it possible to run on any graphics card of any vendor.
 
 Install all the above tools with `pip3 taichi mypy numba cython`.
 
@@ -40,6 +28,8 @@ Install all the above tools with `pip3 taichi mypy numba cython`.
 A good description of the various platforms can be found in [this YouTube video](https://www.youtube.com/watch?v=umLZphwA-dw&ab_channel=DougMercer)
 
 [Longest common subsequence algorithm description](https://www.programiz.com/dsa/longest-common-subsequence)
+
+Build scripts are provided to build, clean and run the benchmnarks.
 
 Performance:
 
@@ -58,6 +48,26 @@ Performance:
 
 Both Cython and Mypyc support building with `setup.py`, refer to the documentation for details.
 
+## Taichi
+
+[Taichi](https://www.taichi-lang.org/) is by far the best, even faster than equivalent C++ code and has a full graphics rendering engine included
+making it possible to simulate and visualise results inside a Jupyter notebook in real-time, compiling to all the
+available platforms, including Apple Metal. It also includes one of the best frameworks I have seen for dealing with
+sparse data, allowing the same code to work on both sparse and dense arrays. In the documentation, an example of how
+to make the code scale on multiple nodes with mpi4py is provided.
+
+Switching to any platform is achieved by simply adding a
+```python
+ti.init(arch=ti.cpu|metal|cuda|vulkan|dx11...)
+```
+statement at the beginning of the module.
+
+It can use compute shaders directly making it possible to run on any graphics card of any vendor.
+
+__Limitation__: it seems that the size of NDArrays supported is 2Gi-elements maximum; when trying to go
+above thi limit an error is reported saying that `int64` indices are not yet supported.
+
+Using Numpy's *NDArrays* seems to result in better performance in comparison to Taichi arrays.
 
 ## Cython
 
