@@ -1,6 +1,3 @@
-
-__First commit__, will fix and update with more information and diagrams.
-
 # Compiled Python
 
 Tested the longest common subsequence algorithm with:
