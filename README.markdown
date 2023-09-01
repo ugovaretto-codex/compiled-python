@@ -44,7 +44,7 @@ Performance:
 * numba: usr time    3.40 secs    0.21 millis    3.40 secs
 
 
-![Benchmarks](https://github.com/ugovaretto-codex/compiled-pythong/blob/results_40000.png?raw=true)
+![Benchmarks](https://github.com/ugovaretto-codex/compiled-python/blob/main/results_40000.png)
 
  __NOTE__: Required for cypthon pyx: use typed indices for loops, __not__ using typed indices
  results in a slowdown of ~17x (55s vs 3s)
