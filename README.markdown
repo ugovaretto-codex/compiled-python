@@ -28,17 +28,7 @@ A good description of the various platforms can be found in [this YouTube video]
 
 Build scripts are provided to build, clean and run the benchmnarks.
 
-Performance:
-
-* CPython:   usr time  197.07 secs    0.19 millis  197.06 secs
-* numpy: usr time  447.09 secs    0.19 millis  447.09 secs
-* mypyc: usr time   24.92 secs    0.23 millis   24.92 secs
-* vanilla cython: usr time   83.51 secs    0.24 millis   83.51 secs
-* cython with annotations: usr time   25.80 secs    0.17 millis   25.80 secs
-* cython pyx: usr time    3.30 secs    0.28 millis    3.30 secs
-* __taichi: usr time    2.56 secs    0.21 millis    2.56 secs__ 😃
-* __taichi static: usr time    2.46 secs    0.22 millis    2.46 secs__ 😄
-* numba: usr time    3.40 secs    0.21 millis    3.40 secs
+## Performance:
 
 
 ![Benchmarks](https://github.com/ugovaretto-codex/compiled-python/blob/main/results_40000.png)
