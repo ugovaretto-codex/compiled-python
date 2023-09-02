@@ -1,9 +1,9 @@
-C++,1000,0.00598096
-CPython,1000,0.2085
-Mypy,1000,0.0296
-Cython,1000,0.1433
-Cython annotated,1000,0.0377
-Cython pyx,1000,0.0056
-Numba,1000,0.3196
-Taichi (Taichi NDArray),1000,0.0254
-Taichi prealloc,1000,0.0200
+CPython,40000,237.9613
+Mypy,40000,92.5128
+Cython,40000,155.0159
+Cython annotated,40000,49.9404
+Cython pyx,40000,4.7147
+Numba,40000,4.3789
+Taichi (Numpy NDArray),40000,3.8772
+Taichi prealloc,40000,3.7508
+C++,40000,3.92

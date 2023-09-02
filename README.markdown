@@ -1,6 +1,6 @@
 # Compiled Python
 
-Tested the longest common subsequence algorithm with:
+Benchmarked the longest common subsequence algorithm with:
 
 * CPython
 * Cython
@@ -8,7 +8,20 @@ Tested the longest common subsequence algorithm with:
 * Numba
 * Taichi
 
-I was not able to make *Codon* work on MacOS, also it's its own language built on top of a subset of Python
+Not tested with *PyTorch* since `torch.compile` does not support Python 3.11 yet.
+PyTorch looks very promising and can compile any Python code to CPU or GPU by invoking directly the compiler in the Python code:
+
+```python
+import torch
+def foo(x, y):
+    a = torch.sin(x)
+    b = torch.cos(y)
+    return a + b
+opt_foo1 = torch.compile(foo)
+print(opt_foo1(torch.randn(10, 10), torch.randn(10, 10)))
+```
+
+Not tested with *Codon* since I was not able to make it work on MacOS, also it's its own language built on top of a subset of Python
 which requires to do things like:
 
 ```python

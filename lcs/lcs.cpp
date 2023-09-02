@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <chrono>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <random>
@@ -11,7 +12,7 @@ using namespace std;
 using namespace chrono;
 
 size_t c(size_t i, size_t j, size_t n) { return i * n + j; }
-int lcs_dyn(const vector<int> &a, const vector<int> &b) {
+int LCS(const vector<int> &a, const vector<int> &b) {
   const size_t m = a.size() + 1;
   const size_t n = b.size() + 1;
   vector<int> dp(m * n);
@@ -48,10 +49,10 @@ int main(int argc, char **argv) {
   Init(a);
   Init(b);
   auto t1 = high_resolution_clock::now();
-  const int s = lcs_dyn(a, b);
+  const int s = LCS(a, b);
   auto t2 = high_resolution_clock::now();
   auto tf = duration<float>(t2 - t1);
-  cout << "C++," << size << ',' << tf.count() << endl;
+  cout << "C++," << size << ',' << setprecision(4) << tf.count() << endl;
   // deal with optimisation: make sure the output is used
   ofstream os("/dev/null");
   os << s;

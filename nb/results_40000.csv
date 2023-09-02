@@ -1,8 +1,9 @@
-CPython,40000,263.1222
-Mypy,40000,93.4874
-Cython,40000,154.7785
-Cython annotated,40000,50.0304
-Cython pyx,40000,4.6677
-Numba,40000,4.3743
-Taichi (Taichi NDArray),40000,3.9722
-Taichi prealloc,40000,3.7558
+CPython,40000,237.9613
+Mypy,40000,92.5128
+Cython,40000,155.0159
+Cython annotated,40000,49.9404
+Cython pyx,40000,4.7147
+Numba,40000,4.3789
+Taichi (Numpy NDArray),40000,3.8772
+Taichi prealloc,40000,3.7508
+C++,40000,3.92
