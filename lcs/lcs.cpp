@@ -51,7 +51,8 @@ int main(int argc, char **argv) {
   const int s = lcs_dyn(a, b);
   auto t2 = high_resolution_clock::now();
   auto tf = duration<float>(t2 - t1);
-  cout << tf.count() << endl;
+  cout << "C++," << size << ',' << tf.count() << endl;
+  // deal with optimisation: make sure the output is used
   ofstream os("/dev/null");
   os << s;
   return 0;

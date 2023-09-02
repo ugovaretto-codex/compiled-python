@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #Python include and libraries must be in path
-./clean.sh
+./clean.sh > /dev/null
+clang++ -std=c++17 -Ofast lcs.cpp -o lcs_cpp.exe
 cp lcs.py lcs_mypy.py
 mypyc lcs_mypy.py
 cythonize lcs.py
