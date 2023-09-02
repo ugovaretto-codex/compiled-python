@@ -20,7 +20,6 @@ def foo(x, y):
 opt_foo1 = torch.compile(foo)
 print(opt_foo1(torch.randn(10, 10), torch.randn(10, 10)))
 ```
-
 Not tested with *Codon* since I was not able to make it work on MacOS, also it's its own language built on top of a subset of Python
 which requires to do things like:
 
