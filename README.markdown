@@ -8,6 +8,12 @@ Benchmarked the longest common subsequence algorithm with:
 * Numba
 * Taichi
 
+The algorithm was explicitly selected to test single-core performance, no point in running it on GPUs because
+it's going to be slower than on the CPU.
+
+
+Taichi is the fastest, Numba it's the easiest to use, Cython the most portable but does not have direct support for GPUs and solutions like [this one](https://developer.nvidia.com/blog/accelerating-python-on-gpus-with-nvc-and-cython) are required.
+
 Not tested with *PyTorch* since `torch.compile` does not support Python 3.11 yet.
 PyTorch looks very promising and can compile any Python code to CPU or GPU by invoking directly the compiler in the Python code:
 
